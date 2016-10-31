@@ -1,4 +1,3 @@
-'''
 Created on Oct 22, 2016
 
 @author: Mason Wong
