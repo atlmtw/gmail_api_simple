@@ -84,13 +84,14 @@ for strang in nlist:
 #Filter out all the empty entries from filter
 finalwords = list(filter(None, finalwords))
 #Check if they are clean!
-print(finalwords)
+#print(finalwords)
 
 #List of stop words such as "the" to look out for
 cachedStopWords = stopwords.words("english")
 
 '''Simple loop to count the number of times a word surfaces 
 that is not considered a stop word'''
+
 finaldict = {}
 for val in finalwords:
     if val in cachedStopWords:
@@ -100,5 +101,34 @@ for val in finalwords:
     else:
         finaldict[val] = 1
 
-#CONGRATS PRINT THE BADBOY!
-print(finaldict)
+import operator as op
+#Check the words to see if it works
+#print(finaldict) WORKS!
+#Now sort the words by top 20 results and print the touples
+sorted_x = sorted(finaldict.items(), key=op.itemgetter(1), reverse=True)[:20]
+#Get the results!!!
+print(sorted_x)
+
+'''Console Results ----TOP 20-------------------------------------------------------------------
+[('mason', 41), 
+('2016', 35), 
+('michael', 34), 
+('wong', 33), 
+('chapter', 27), 
+('oct', 24), 
+('regards', 23), 
+('mike', 19), 
+('lambda', 18), 
+('qasid', 18), 
+('actives', 18), 
+('time', 17), 
+('president', 16), 
+('tue', 16), 
+('thanks', 15), 
+('uga', 14), 
+('opportunities', 14), 
+('would', 13), 
+('current', 13), 
+('pm', 13)]
+-----------------------------------------------------------------------------------------------------
+'''
